@@ -33,14 +33,12 @@ public class StringController {
 	 * @return  output indexes where pattern is matched
 	 * 
 	 */
+
 	@PostMapping(produces="application/json",
-				consumes="application/json")
+			consumes="application/json")
 	@RequestMapping("/patternmatching")
 	public ResponseEntity<Response> patternMatching(@RequestBody Request request){
 
 		return new ResponseEntity<>(stringService.patternMatching(request), HttpStatus.OK);
-
-
 	}
-
 }
