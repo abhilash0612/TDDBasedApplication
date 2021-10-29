@@ -21,43 +21,37 @@ import com.abhilash.tddstring.service.IStringService;
 
 
 
-/**
+/**test class for StringController
  * @author abhilashgupta
  *
  */
 @ExtendWith(SpringExtension.class)
 @WebMvcTest
-public class StringControllerTest {
-	
+class StringControllerTest {
+
 	@Autowired
-    MockMvc mockMvc;
+	MockMvc mockMvc;
 
-    @MockBean
-    private IStringService stringService;
-    
-    
-    @Test
-    void patternMatching() throws Exception {
+	@MockBean
+	private IStringService stringService;
 
-    	Request request = new Request();
-    	request.setInput("AABAA");
-    	request.setPattern("AABA");
-    	
-    	Response response = new Response();
-    	response.setOutput("Pattern found at position 0.");
-    	
-        Mockito.when(stringService.patternMatching(request)).thenReturn(response);
 
-        mockMvc.perform(MockMvcRequestBuilders.put("/string/patternmatching")
-                .contentType(MediaType.APPLICATION_JSON).content("{\n"
-                		+ "\"input\":\"AABAA\",\n"
-                		+ "\"pattern\":\"AABA\"\n"
-                		+ "}")
-        )
-        .andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
-        .andExpect(MockMvcResultMatchers.jsonPath("output").value("Pattern found at position 0.")) ;
-      //  .andReturn();
-    }
+	@Test
+	void patternMatching() throws Exception {
+
+		Request request = new Request();
+		request.setInput("AABAA");
+		request.setPattern("AABA");
+		Response response = new Response();
+		response.setOutput("Pattern found at position 0.");
+		Mockito.when(stringService.patternMatching(request)).thenReturn(response);
+		mockMvc.perform(MockMvcRequestBuilders.put("/string/patternmatching")
+				.contentType(MediaType.APPLICATION_JSON).content("{\n"
+						+ "\"input\":\"AABAA\",\n"
+						+ "\"pattern\":\"AABA\"\n"
+						+ "}")
+				)
+		.andExpect(MockMvcResultMatchers.status().isOk());
+	}
 
 }
