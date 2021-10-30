@@ -13,5 +13,7 @@ import com.abhilash.tddstring.model.Response;
 public interface IStringService{
 	
 	Response patternMatching(Request request);
+	
+	Response palindrome(Request request);
 
 }

@@ -24,7 +24,7 @@ import com.abhilash.tddstring.utility.Utility;
  * @author abhilashgupta
  *
  */
-public class StringServiceTest {
+ class StringServiceTest {
 
 
 

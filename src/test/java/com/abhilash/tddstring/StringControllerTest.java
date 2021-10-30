@@ -53,5 +53,22 @@ class StringControllerTest {
 				)
 		.andExpect(MockMvcResultMatchers.status().isOk());
 	}
+	
+	@Test
+	void palindromeController() throws Exception {
+
+		Request request = new Request();
+		request.setInput("AABAA");
+		Response response = new Response();
+		response.setOutput("Input String AABAA is a Palindrome.");
+		Mockito.when(stringService.patternMatching(request)).thenReturn(response);
+		mockMvc.perform(MockMvcRequestBuilders.put("/string/palindrome")
+				.contentType(MediaType.APPLICATION_JSON).content("{\n"
+						+ "\"input\":\"AABAA\",\n"
+						+ "}")
+				)
+		.andExpect(MockMvcResultMatchers.status().isOk());
+	}
+	
 
 }
