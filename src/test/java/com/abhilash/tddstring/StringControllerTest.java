@@ -37,7 +37,7 @@ class StringControllerTest {
 
 
 	@Test
-	void patternMatching() throws Exception {
+	void patternMatchingController() throws Exception {
 
 		Request request = new Request();
 		request.setInput("AABAA");
