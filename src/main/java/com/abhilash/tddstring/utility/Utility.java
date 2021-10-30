@@ -29,4 +29,9 @@ public class Utility {
 		
 		return index;		
 	}
+
+	public static boolean isPalindrome(String input) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

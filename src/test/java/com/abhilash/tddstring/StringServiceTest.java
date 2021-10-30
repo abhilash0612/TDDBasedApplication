@@ -69,6 +69,28 @@ import com.abhilash.tddstring.utility.Utility;
 		   }
 		  });	
 	}
+	
+	@Test
+	void isPalindromegMockServicePass() {
+		Request request = new Request();
+		request.setInput("AABAA");
+		String input = request.getInput();
+		boolean expected =true;
+		boolean actual =true;
+		MockedStatic<Utility> utilities = Mockito.mockStatic(Utility.class);
+		utilities.when(() -> Utility.isPalindrome(input)).thenReturn(true);
+		assertEquals(expected, actual);	
+	}
+	
+	@Test
+	void isPalindromegMockServiceFail() {
+		Request request = new Request();
+		request.setInput("AABAA");
+		String input = request.getInput();
+		boolean expected =true;
+		boolean actual =Utility.isPalindrome(input);
+		assertEquals(expected, actual);	
+	}
 		
 }
 
