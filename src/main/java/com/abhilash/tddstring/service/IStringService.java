@@ -10,7 +10,7 @@ import com.abhilash.tddstring.model.Response;
  * @author abhilashgupta
  *
  */
-public interface IStringService {
+public interface IStringService{
 	
 	Response patternMatching(Request request);
 

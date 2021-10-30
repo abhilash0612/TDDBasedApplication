@@ -26,7 +26,7 @@ public class StringServiceTest {
 
 
 	@Test
-	void patternMatchingService() {
+	void patternMatchingMockService() {
 		Request request = new Request();
 		request.setInput("AABAA");
 		request.setPattern("AABA");
@@ -53,7 +53,7 @@ public class StringServiceTest {
 		assertNotNull(actual);
 		assertEquals(expected, actual);		
 	}
-
+	
 }
 
 
