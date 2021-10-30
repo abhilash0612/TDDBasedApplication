@@ -7,7 +7,7 @@ package com.abhilash.tddstring.model;
  * @author abhilashgupta
  *
  */
-public class Response {
+public class Response extends BaseResponse{
 	
 	private String output;
 
