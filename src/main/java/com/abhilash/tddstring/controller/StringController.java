@@ -41,4 +41,18 @@ public class StringController {
 
 		return new ResponseEntity<>(stringService.patternMatching(request), HttpStatus.OK);
 	}
+	
+	/**
+	 * endpoint for checking string is palindrome or not
+	 *@param request- contains input string
+	 * @return  wheather input string is palindrome or not
+	 */
+	@PostMapping(produces="application/json",
+				consumes="application/json")
+	@RequestMapping("/palindrome")
+	public ResponseEntity<Response> isPalindrome(@RequestBody  Request request){
+
+		return new ResponseEntity<>(stringService.palindrome(request), HttpStatus.OK);
+
+	}
 }
