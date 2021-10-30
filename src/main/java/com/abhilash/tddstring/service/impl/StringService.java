@@ -56,8 +56,21 @@ public class StringService implements IStringService{
 
 	@Override
 	public Response palindrome(Request request) {
-		// TODO Auto-generated method stub
-		return null;
+		Response res = null;
+		String input;
+
+		input = request.getInput();	
+		//checking and handling input is empty or not as a user defined exception
+		if(input.length()==0)
+			throw new EmptyInputException(ErrorCodes.ERR_001);
+		res = new Response();
+		//logic for checking Palindromes
+		if(Utility.isPalindrome(input))
+			res.setOutput(messageSource.getMessage("palindrome.exist",new Object[]{input},Locale.ENGLISH));
+		else
+			res.setOutput(messageSource.getMessage("palindrome.not.exist",new Object[]{input},Locale.ENGLISH));		
+		return res;
+	
 	}
 
 }
