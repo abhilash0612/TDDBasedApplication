@@ -17,20 +17,24 @@ import com.abhilash.tddstring.service.IStringService;
 import com.abhilash.tddstring.utility.ErrorCodes;
 import com.abhilash.tddstring.utility.Utility;
 
- 
 
-/**
+
+/**Service class for patternmatching and palindrome api
  * @author abhilashgupta
  *
  */
 
 @Service
 public class StringService implements IStringService{
-	
+
 	@Autowired
 	private MessageSource messageSource;
-	
-	
+
+
+	/** 
+	 * Service method for  patternMatching api
+	 *
+	 */
 	@Override
 	public Response patternMatching(Request request) {
 		Response res;
@@ -40,7 +44,6 @@ public class StringService implements IStringService{
 		if(input.length()==0)
 			throw new EmptyInputException(ErrorCodes.ERR_001);
 		String pattern = request.getPattern();	
-		//checking and handling  pattern string is empty or not as a user defined exception
 		if(pattern.length()==0)
 			throw new EmptyInputException(ErrorCodes.ERR_002);
 		index = Utility.isPatternMatching(input,pattern);
@@ -54,23 +57,23 @@ public class StringService implements IStringService{
 	}
 
 
+	/** 
+	 * Service method for  pallindrome api
+	 *
+	 */
 	@Override
 	public Response palindrome(Request request) {
 		Response res = null;
 		String input;
-
 		input = request.getInput();	
-		//checking and handling input is empty or not as a user defined exception
 		if(input.length()==0)
 			throw new EmptyInputException(ErrorCodes.ERR_001);
 		res = new Response();
-		//logic for checking Palindromes
 		if(Utility.isPalindrome(input))
 			res.setOutput(messageSource.getMessage("palindrome.exist",new Object[]{input},Locale.ENGLISH));
 		else
 			res.setOutput(messageSource.getMessage("palindrome.not.exist",new Object[]{input},Locale.ENGLISH));		
 		return res;
-	
 	}
 
 }

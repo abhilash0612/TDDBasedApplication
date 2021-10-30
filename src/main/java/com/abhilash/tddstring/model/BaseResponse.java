@@ -1,7 +1,11 @@
 package com.abhilash.tddstring.model;
 
+/**Base response structure
+ * @author abhilashgupta
+ *
+ */
 public class BaseResponse {
-	
+
 	private ErrorResponse errors;
 
 	public BaseResponse(){
@@ -14,7 +18,7 @@ public class BaseResponse {
 	public void setErrors(ErrorResponse errors) {
 		this.errors = errors;
 	}
-	
-	
-	
+
+
+
 }

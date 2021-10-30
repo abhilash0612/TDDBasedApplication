@@ -1,16 +1,19 @@
 package com.abhilash.tddstring.utility;
 
+/**
+ * @author abhilashgupta
+ *
+ */
 public enum ErrorCodes {
-	
-	 
+
+
 	ERR_500("something.wrong"),
 	ERR_001("no.input"),
 	ERR_002("no.pattern");
-	
 
 	private String message;
-	
-	
+
+
 	private ErrorCodes(String message) {
 		this.message = message;
 	}
@@ -22,6 +25,4 @@ public enum ErrorCodes {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
-
 }

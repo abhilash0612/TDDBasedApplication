@@ -35,7 +35,6 @@ class StringControllerTest {
 	@MockBean
 	private IStringService stringService;
 
-
 	@Test
 	void patternMatchingController() throws Exception {
 
@@ -53,7 +52,7 @@ class StringControllerTest {
 				)
 		.andExpect(MockMvcResultMatchers.status().isOk());
 	}
-	
+
 	@Test
 	void palindromeController() throws Exception {
 
@@ -69,6 +68,5 @@ class StringControllerTest {
 				)
 		.andExpect(MockMvcResultMatchers.status().isOk());
 	}
-	
 
 }

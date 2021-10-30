@@ -25,7 +25,7 @@ import com.abhilash.tddstring.utility.Utility;
  * @author abhilashgupta
  *
  */
- class StringServiceTest {
+class StringServiceTest {
 
 
 
@@ -43,7 +43,7 @@ import com.abhilash.tddstring.utility.Utility;
 		assertNotNull(index);
 	}
 
-	
+
 	@Test
 	void isPatternMatchchingLogic() {
 		Request request = new Request();
@@ -57,7 +57,7 @@ import com.abhilash.tddstring.utility.Utility;
 		assertNotNull(actual);
 		assertEquals(expected, actual);		
 	}
-	
+
 	@Test
 	void exceptionThrownOnEmptyInputfield() {
 		Request request = new Request();
@@ -65,12 +65,25 @@ import com.abhilash.tddstring.utility.Utility;
 		request.setPattern("AABA");
 		String input = request.getInput();
 		Assertions.assertThrows(EmptyInputException.class, () -> {
-		   if(input.length()==0) {
-			   throw new EmptyInputException(ErrorCodes.ERR_001);
-		   }
-		  });	
+			if(input.length()==0) {
+				throw new EmptyInputException(ErrorCodes.ERR_001);
+			}
+		});	
 	}
-	
+
+	@Test
+	void exceptionThrownOnEmptyPatternfield() {
+		Request request = new Request();
+		request.setInput("AAbAA");
+		request.setPattern("");
+		String pattern = request.getPattern();
+		Assertions.assertThrows(EmptyInputException.class, () -> {
+			if(pattern.length()==0) {
+				throw new EmptyInputException(ErrorCodes.ERR_002);
+			}
+		});	
+	}
+
 	@Test
 	void isPalindromegMockServicePass() {
 		Request request = new Request();
@@ -82,22 +95,22 @@ import com.abhilash.tddstring.utility.Utility;
 		utilities.when(() -> Utility.isPalindrome(input)).thenReturn(true);
 		assertEquals(expected, actual);	
 	}
-		
+
 	@Test
 	void isPalindromeLogicPass() {
 		Request request = new Request();
 		request.setInput("AABAA");
-		 boolean expected =true;
+		boolean expected =true;
 		String input = request.getInput();
 		boolean actual =Utility.isPalindrome(input);
 		assertEquals(expected, actual);		
 	}
-	
+
 	@Test
 	void isPalindromeLogicFail() {
 		Request request = new Request();
 		request.setInput("AABAAA");
-		 boolean expected =true;
+		boolean expected =true;
 		String input = request.getInput();
 		boolean actual =Utility.isPalindrome(input);
 		assertNotEquals(expected, actual);		
