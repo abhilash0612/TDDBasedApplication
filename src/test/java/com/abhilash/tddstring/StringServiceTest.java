@@ -4,6 +4,7 @@
 package com.abhilash.tddstring;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.ArrayList;
@@ -58,7 +59,7 @@ import com.abhilash.tddstring.utility.Utility;
 	}
 	
 	@Test
-	void exceptionThrownOnEmptyFInputfield() {
+	void exceptionThrownOnEmptyInputfield() {
 		Request request = new Request();
 		request.setInput("");
 		request.setPattern("AABA");
@@ -81,17 +82,26 @@ import com.abhilash.tddstring.utility.Utility;
 		utilities.when(() -> Utility.isPalindrome(input)).thenReturn(true);
 		assertEquals(expected, actual);	
 	}
-	
+		
 	@Test
-	void isPalindromegMockServiceFail() {
+	void isPalindromeLogicPass() {
 		Request request = new Request();
 		request.setInput("AABAA");
+		 boolean expected =true;
 		String input = request.getInput();
-		boolean expected =true;
 		boolean actual =Utility.isPalindrome(input);
-		assertEquals(expected, actual);	
+		assertEquals(expected, actual);		
 	}
-		
+	
+	@Test
+	void isPalindromeLogicFail() {
+		Request request = new Request();
+		request.setInput("AABAAA");
+		 boolean expected =true;
+		String input = request.getInput();
+		boolean actual =Utility.isPalindrome(input);
+		assertNotEquals(expected, actual);		
+	}
 }
 
 

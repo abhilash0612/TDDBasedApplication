@@ -31,7 +31,15 @@ public class Utility {
 	}
 
 	public static boolean isPalindrome(String input) {
-		// TODO Auto-generated method stub
-		return false;
+		int i = 0;
+		int j = input.length() - 1;
+        while (i < j) {
+            if (input.charAt(i) != input.charAt(j))
+                return true;
+            i++;
+            j--;      
+       
+	}
+        return false;
 	}
 }
